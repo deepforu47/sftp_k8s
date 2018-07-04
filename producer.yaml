@@ -29,5 +29,5 @@ spec:
           value: "1024"
         - name: rate
           value: "10000"
-#        - name: delay
-#          value: 0
+        - name: delay
+          value: "0"
