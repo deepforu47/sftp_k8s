@@ -26,10 +26,8 @@ spec:
         - name: BROKER_PASSWORD
           value: "cbSusUowdXPq77mjTkpEk4lUuD6zd0xS4EnIIjQ4k+M="
         - name: size
-          value: "1024"
+          value: 1024
         - name: rate
-          value: "10000"
+          value: 10000
         - name: delay
-          value: "0"
-#test
-#      restartPolicy: OnFailure
+          value: 0
