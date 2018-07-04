@@ -25,4 +25,6 @@ spec:
           value: "RootManageSharedAccessKey"
         - name: BROKER_PASSWORD
           value: "cbSusUowdXPq77mjTkpEk4lUuD6zd0xS4EnIIjQ4k+M="
+        - name: size
+          value: "1024"
 #      restartPolicy: OnFailure
