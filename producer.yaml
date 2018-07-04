@@ -11,10 +11,10 @@ spec:
     spec:
       containers:
       - name: producer
-        image: goepjbossacr.azurecr.io/consumer
+        image: goepjbossacr.azurecr.io/producer
         env:
         - name: name
-          value: "Consumer1"
+          value: "Producer1"
         - name: queue
           value: "GOEP.TEST"
         - name: camelMqComponent
@@ -25,7 +25,4 @@ spec:
           value: "RootManageSharedAccessKey"
         - name: BROKER_PASSWORD
           value: "cbSusUowdXPq77mjTkpEk4lUuD6zd0xS4EnIIjQ4k+M="
-
-
-
 #      restartPolicy: OnFailure
