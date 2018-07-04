@@ -25,8 +25,8 @@ spec:
           value: "RootManageSharedAccessKey"
         - name: BROKER_PASSWORD
           value: "cbSusUowdXPq77mjTkpEk4lUuD6zd0xS4EnIIjQ4k+M="
-        - name: size
-          value: 1024
+#        - name: size
+#          value: 1024
 #        - name: rate
 #          value: 10000
 #        - name: delay
