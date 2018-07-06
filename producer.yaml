@@ -31,3 +31,5 @@ spec:
           value: "10000"
         - name: delay
           value: "0"
+        - name: repeatCount
+          value: "0"
