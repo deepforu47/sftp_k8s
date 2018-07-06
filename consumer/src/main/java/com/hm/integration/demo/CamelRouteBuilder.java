@@ -16,7 +16,7 @@ public class CamelRouteBuilder extends RouteBuilder {
   @Override
   public void configure()
   {
-    from("{{camelMqComponent}}:queue:{{queue}}")
+    from("{{camelMqComponent}}:queue:{{queue}}?concurrentConsumers={{concurrentConsumers}}")
       .routeId("Consumer: {{name}}")
       .log("${header.breadcrumbId} Consuming from {{queue}} from producer ${headers.producer}");
   }

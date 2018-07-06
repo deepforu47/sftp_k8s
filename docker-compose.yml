@@ -9,6 +9,9 @@ services:
       # Name of queue to consume from
       - queue=GOEP.TEST
 
+      # Number of concurrent consumers in the jvm
+      - concurrentConsumers=1
+
       # Camel component to use for messaging, can be either "jms" or "amqp"
       - camelMqComponent
 
@@ -38,6 +41,9 @@ services:
 
       # Initial delay before first message is produced (ms)
       - delay=0
+
+      # Number of messages to send before stopping (set to 0 for infinity)
+      - repeatCount=0
 
       # Camel component to use for messaging, can be either "jms" or "amqp"
       - camelMqComponent

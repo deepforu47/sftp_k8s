@@ -34,7 +34,7 @@ public class CamelRouteBuilder extends RouteBuilder {
   @Override
   public void configure()
   {
-    from("timer://foo?fixedRate=true&period={{rate}}")
+    from("timer://foo?fixedRate=true&period={{rate}}&repeatCount={{repeatCount}}")
       .routeId("Producer: {{name}}")
       .setHeader("producer", simple("{{name}}"))
       .setBody(constant(generate(size)))
