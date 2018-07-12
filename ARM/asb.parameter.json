@@ -3,11 +3,11 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serviceBusNamespaceName": {
-			"value": "jbossasb1"
+			"value": "jbossasb1_parameterfile"
         },
  
         "AuthorizationRules_RootManageSharedAccessKey_name": {
-			"value": "jbosstestnamespacekey_name"
+			"value": "jbosstestnamespacekey_name_parameterfile"
         },
 		"queues_name": {
             "Value": [ 
