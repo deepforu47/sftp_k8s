@@ -25,7 +25,7 @@
     "variables": {},
     "resources": [
          {
-            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourceGroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/[parameters('serviceBusNamespaceName')]'.",
+            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourceGroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/parameters('serviceBusNamespaceName')'.",
             "type": "Microsoft.ServiceBus/namespaces",
             "sku": {
                 "name": "Premium",
@@ -43,7 +43,7 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourcegroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/JbossASB/AuthorizationRules/[parameters('AuthorizationRules_RootManageSharedAccessKey_name')]'.",
+            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourcegroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/JbossASB/AuthorizationRules/parameters('AuthorizationRules_RootManageSharedAccessKey_name')'.",
             "type": "Microsoft.ServiceBus/namespaces/AuthorizationRules",
             "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('AuthorizationRules_RootManageSharedAccessKey_name'))]",
             "apiVersion": "2017-04-01",
@@ -61,7 +61,7 @@
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourcegroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/JbossASB/queues/[parameters('queues_name')]'.",
+            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourcegroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/JbossASB/queues/parameters('queues_name')'.",
             "type": "Microsoft.ServiceBus/namespaces/queues",
             "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('queues_name')[copyIndex()])]",
 			"copy": { 
