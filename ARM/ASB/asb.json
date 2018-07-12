@@ -1,1 +1,95 @@
-asdsa
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "serviceBusNamespaceName": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "queues_name": {
+            "defaultValue": [ "queue1" ],
+            "type": "array"
+        },
+        "AuthorizationRules_RootManageSharedAccessKey_name": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+		"location": {
+			"type": "string",
+			"defaultValue": "[resourceGroup().location]",
+			"metadata": {
+			"description": "Location for all resources."
+			}
+		}
+    },
+    "variables": {},
+    "resources": [
+         {
+            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourceGroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/parameters('serviceBusNamespaceName')'.",
+            "type": "Microsoft.ServiceBus/namespaces",
+            "sku": {
+                "name": "Premium",
+                "tier": "Premium",
+                "capacity": 1
+            },
+            "name": "[parameters('serviceBusNamespaceName')]",
+            "apiVersion": "2017-04-01",
+            "location": "[parameters('location')]",
+            "tags": {
+				"owner": "kuldeep.d.sharma@accenture.com"
+			},
+            "scale": null,
+            "properties": {},
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourcegroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/parameters('serviceBusNamespaceName')/AuthorizationRules/parameters('AuthorizationRules_RootManageSharedAccessKey_name')'.",
+            "type": "Microsoft.ServiceBus/namespaces/AuthorizationRules",
+            "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('AuthorizationRules_RootManageSharedAccessKey_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "[parameters('location')]",
+            "scale": null,
+            "properties": {
+                "rights": [
+                    "Listen",
+                    "Manage",
+                    "Send"
+                ]
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/440c6df7-f4b9-4757-b234-a5c9d2bc2929/resourcegroups/RG-Jboss/providers/Microsoft.ServiceBus/namespaces/parameters('serviceBusNamespaceName')/queues/parameters('queues_name')'.",
+            "type": "Microsoft.ServiceBus/namespaces/queues",
+            "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('queues_name')[copyIndex()])]",
+			"copy": { 
+			"name": "queues_name", 
+			"count": "[length(parameters('queues_name'))]" 
+			}, 
+            "apiVersion": "2017-04-01",
+            "location": "[parameters('location')]",
+            "scale": null,
+            "properties": {
+                "lockDuration": "PT30S",
+                "maxSizeInMegabytes": 1024,
+                "requiresDuplicateDetection": false,
+                "requiresSession": false,
+                "defaultMessageTimeToLive": "P14D",
+                "deadLetteringOnMessageExpiration": false,
+                "enableBatchedOperations": true,
+                "duplicateDetectionHistoryTimeWindow": "PT10M",
+                "maxDeliveryCount": 10,
+                "status": "Active",
+                "autoDeleteOnIdle": "P10675199DT2H48M5.4775807S",
+                "enablePartitioning": false,
+                "enableExpress": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.ServiceBus/namespaces', parameters('serviceBusNamespaceName'))]"
+            ]
+        }
+     ],
+	 "outputs": {}
+}
