@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "serviceBusNamespaceName": {
-			"value": "jbossasb1_parameterfile"
+			"value": "jbossasb1parameterfile"
         },
  
         "AuthorizationRules_RootManageSharedAccessKey_name": {
