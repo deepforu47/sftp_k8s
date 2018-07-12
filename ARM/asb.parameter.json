@@ -10,7 +10,7 @@
 			"value": "jbosstestnamespacekey_name_parameterfile"
         },
 		"queues_name": {
-            "Value": [ 
+            "value": [ 
                 "queue1", 
                 "queue2", 
                 "queue3",
