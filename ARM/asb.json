@@ -7,8 +7,8 @@
             "type": "String"
         },
         "queues_name": {
-            "type": "array", 
-			"defaultValue": [ "queue1" ] 
+            "defaultValue": [ "queue1" ],
+            "type": "array"
         },
         "AuthorizationRules_RootManageSharedAccessKey_name": {
             "defaultValue": "default",
@@ -65,7 +65,7 @@
             "type": "Microsoft.ServiceBus/namespaces/queues",
             "name": "[concat(parameters('serviceBusNamespaceName'), '/', parameters('queues_name')[copyIndex()])]",
 			"copy": { 
-			"name": "storagecopy", 
+			"name": "queues_name", 
 			"count": "[length(parameters('queues_name'))]" 
 			}, 
             "apiVersion": "2017-04-01",
