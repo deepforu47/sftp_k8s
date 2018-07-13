@@ -1,1 +1,0 @@
-ocker-compose up
