@@ -6,7 +6,10 @@ MAINTAINER kuldeep.d.sharma
 
 RUN sed -i 's/enabled=1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf \
     && yum -y update \
-    && yum -y install openssh-server openssh wget unzip nc telnet curl tar zip git sudo 
+    && yum -y install openssh-server openssh wget unzip nc telnet curl tar zip git sudo \
+    && echo "Create User: appuser and Directory app" \
+    && groupadd -g 530 appuser \
+    && useradd -u 530 -g 530 appuser 
 #cronie net-tools libunwind icu 
 
 RUN mkdir -p /var/run/sshd
