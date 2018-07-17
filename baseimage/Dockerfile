@@ -1,7 +1,10 @@
 FROM centos:centos7
 MAINTAINER kuldeep.d.sharma
 
-RUN yum -y install openssh-server
+
+RUN sed -i 's/enabled=1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf \
+    && yum -y update \
+    && yum -y install openssh-server openssh wget unzip nc telnet curl tar zip git sudo cronie net-tools libunwind icu 
 
 RUN mkdir -p /var/run/sshd
 RUN groupadd --system sftp
