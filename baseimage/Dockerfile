@@ -17,9 +17,10 @@ RUN groupadd --system sftp
 
 ADD . /root
 WORKDIR /root
-RUN mv sshd_config /etc/ssh/sshd_config
+RUN mv sshd_config /etc/ssh/sshd_config \
+    && awk '{ sub("\r$", ""); print }' run.sh > run
 RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 
 EXPOSE 22
 
-#CMD ["/bin/bash", "run"]
+CMD ["/bin/bash", "run"]
