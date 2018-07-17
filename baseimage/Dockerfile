@@ -22,4 +22,4 @@ RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
 
 EXPOSE 22
 
-CMD ["/bin/bash", "run"]
+#CMD ["/bin/bash", "run"]
