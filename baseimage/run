@@ -1,16 +1,36 @@
-FROM centos:centos7
-MAINTAINER kuldeep.d.sharma
+#!/bin/bash
 
-RUN yum -y install openssh-server
+# Add users
+IFS=',' read -a users <<< "$SFTP_USERS"
+for userData in "${users[@]}"; do
+    IFS=':' read -a data <<< "$userData"
+    user="${data[0]}"
+    pass="${data[1]}"
 
-RUN mkdir -p /var/run/sshd
-RUN groupadd --system sftp
+   if [ "${data[3]}" == "e" ]; then
+      encrypted=yes
+      uid="${data[2]}"
+    elif [ "${data[2]}" == "e" ]; then
+      encrypted=yes
+    elif [ ${data[2]} ]; then
+      uid="${data[2]}"
+    fi
 
-ADD . /root
-WORKDIR /root
-RUN mv sshd_config /etc/ssh/sshd_config
-RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
+    if ! [ $uid ]; then
+      uid=$(shuf -i 1500-2000 -n 1)
+    fi
 
-EXPOSE 22
+    useradd -u $uid $user
 
-CMD ["/bin/bash", "run"]
+    if [ "$encrypted" == "yes" ]; then
+      echo "$user:$pass" | chpasswd -e
+    else
+      echo "$user:$pass" | chpasswd
+    fi
+
+    chown root:root /home/$user
+    chmod 755 /home/$user
+done
+
+# Run SSH
+/usr/sbin/sshd -D
