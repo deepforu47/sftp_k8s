@@ -1,4 +1,6 @@
-FROM centos:centos7
+ARG OS_VERSION=latest
+FROM centos:${OS_VERSION}
+
 MAINTAINER kuldeep.d.sharma
 
 
