@@ -48,7 +48,7 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: sftp-data
-        - mountPath: /home/myUser/.ssh/keys
+        - mountPath: /data/foo/.ssh/keys
           name: sftp-public-keys
           readOnly: true
         imagePullPolicy: Always
