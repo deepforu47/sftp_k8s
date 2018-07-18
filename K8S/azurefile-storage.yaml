@@ -1,0 +1,32 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: azurefile1
+  namespace: sftp
+provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0755
+  - file_mode=0644
+  - uid=500
+  - gid=500
+parameters:
+  skuName: Standard_LRS
+  
+  
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sftpvolumeclaim
+  namespace: sftp
+  labels:
+    storage: sftp
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  storageClassName: azurefile1
+  resources:
+    requests:
+      storage: 5Gi
