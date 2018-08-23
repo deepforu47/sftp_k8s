@@ -10,6 +10,7 @@ mountOptions:
   - file_mode=0644
   - uid=500
   - gid=500
+  - mfsynlinks
 parameters:
   skuName: Standard_LRS
   
