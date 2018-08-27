@@ -71,5 +71,5 @@ spec:
             name: sftp-public-keys
         - name: sftp-data
           persistentVolumeClaim:
-            claimName: sftp-pcv
+            claimName: sftp-pvc
 
