@@ -30,8 +30,8 @@ for userData in "${users[@]}";do
       echo "$user:$pass" | chpasswd
     fi
 
-    chown $user:$user /data/$user
-    chmod 755 /data/$user
+    chown $user:$user /home/$user
+    chmod 755 /home/$user
 done
 
 # Run SSH
