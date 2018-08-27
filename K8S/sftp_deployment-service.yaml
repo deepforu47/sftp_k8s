@@ -3,7 +3,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: sftp
+  name: sftp-svc
   namespace: sftp
   labels:
     environment: dev
@@ -24,7 +24,7 @@ status:
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: sftp
+  name: sftp-deploy
   namespace: sftp
   labels:
     environment: dev
@@ -51,9 +51,11 @@ spec:
           name: sftp-data
         - mountPath: /data/foo/.ssh/keys
           name: sftp-public-keys
+        - mountPath: /data/bar/.ssh/keys
+          name: sftp-public-keys
           readOnly: true
         imagePullPolicy: Always
-        name: sftp
+        name: sftp-container
         securityContext:
             capabilities:
               add: ["SYS_ADMIN"]
@@ -69,5 +71,5 @@ spec:
             name: sftp-public-keys
         - name: sftp-data
           persistentVolumeClaim:
-            claimName: sftpvolumeclaim
+            claimName: sftp-pcv
 
