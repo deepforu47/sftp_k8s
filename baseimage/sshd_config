@@ -143,14 +143,14 @@ Subsystem sftp internal-sftp -f AUTH -l INFO
 #	ForceCommand cvs server
 
 
-#Match User jboss_dev,dpduser1_dev,dpduser2_dev,dpduser3_dev,dpduser4_dev,bpostuser_dev,econtuser_dev,sebuser_dev,xvi_dev,jboss_syt,dpduser1_syt,dpduser3_syt,dpduser4_syt,bpostuser_syt,econtuser_syt,sebuser_syt,xvi_syt,jboss_trn,dpduser1_trn,dpduser2_trn,dpduser3_trn,dpduser4_trn,bpostuser_trn,econtuser_trn,sebuser_trn,xvi_trn,hermesuser_dev,hermesuser_syt,jboss_sbx,dpduser1_sbx,dpduser2_sbx,dpduser3_sbx,dpduser4_sbx,bpostuser_sbx,econtuser_sbx,sebuser_sbx,xvi_sbx,aruser3_dev,aruser3_syt,iprospect_syt,yamato_syt,mondial_syt,jboss_de2,jboss_dev2,p24user_syt,mpuser_syt,olapicuser_syt,causer_syt,postiuser_syt,postnorduser_syt,postnluser_syt,kghuser_syt,lfuser_syt,lfuser2_syt,lfuser3_syt,lfuser4_syt,dpduser2_syt,gpuser_syt,gpuser_amt,gpuser_int,qingmutec_syt,qingmutec_ams,qingmutec_amt,qingmutec_int,wmsar3user_syt,wmsar4user_syt,foo,bar
-#      ChrootDirectory %h
-#      ForceCommand internal-sftp
-#      AllowTcpForwarding no
-#      X11Forwarding no
-
-Match Group appuser
+Match User jboss_dev,dpduser1_dev,dpduser2_dev,dpduser3_dev,dpduser4_dev,bpostuser_dev,econtuser_dev,sebuser_dev,xvi_dev,jboss_syt,dpduser1_syt,dpduser3_syt,dpduser4_syt,bpostuser_syt,econtuser_syt,sebuser_syt,xvi_syt,jboss_trn,dpduser1_trn,dpduser2_trn,dpduser3_trn,dpduser4_trn,bpostuser_trn,econtuser_trn,sebuser_trn,xvi_trn,hermesuser_dev,hermesuser_syt,jboss_sbx,dpduser1_sbx,dpduser2_sbx,dpduser3_sbx,dpduser4_sbx,bpostuser_sbx,econtuser_sbx,sebuser_sbx,xvi_sbx,aruser3_dev,aruser3_syt,iprospect_syt,yamato_syt,mondial_syt,jboss_de2,jboss_dev2,p24user_syt,mpuser_syt,olapicuser_syt,causer_syt,postiuser_syt,postnorduser_syt,postnluser_syt,kghuser_syt,lfuser_syt,lfuser2_syt,lfuser3_syt,lfuser4_syt,dpduser2_syt,gpuser_syt,gpuser_amt,gpuser_int,qingmutec_syt,qingmutec_ams,qingmutec_amt,qingmutec_int,wmsar3user_syt,wmsar4user_syt,foo,bar
       ChrootDirectory /home/%u
       ForceCommand internal-sftp
+      AllowTcpForwarding no
+      X11Forwarding no
+
+#Match Group appuser
+#      ChrootDirectory /home/%u
+#      ForceCommand internal-sftp
 #should not be used
 #AllowGroups goep.npr.linux.admin goep.npr.dcsc.mobilisation goep.npr.network.admin goep.npr.monitoring goep.dvt.ta goep.dvt.dmz-sftp.users appuser qualyscan
