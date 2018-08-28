@@ -9,7 +9,7 @@ RUN sed -i 's/enabled=1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf \
     && yum -y install openssh-server openssh wget unzip nc telnet curl tar zip git sudo \
     && groupadd -g 500 appuser \
     && useradd -u 500 -g 500 appuser \
-    && sed -i 's#HOME=/home#HOME=/data#g' /etc/default/useradd \
+ #   && sed -i 's#HOME=/home#HOME=/data#g' /etc/default/useradd \
     && mkdir -p /var/run/sshd \
     && groupadd --system sftp
 #cronie net-tools libunwind icu 
