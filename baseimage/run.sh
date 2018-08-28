@@ -29,11 +29,9 @@ for userData in "${users[@]}";do
     else
       echo "$user:$pass" | chpasswd
     fi
-
-    chown -R $user:$user /home/$user
-    chmod 755 /home/$user
-    chmod 700 /home/$user/.ssh
-    chmod 600 /home/$user/.ssh/authorized_keys
+    
+    mkdir /home/$user/.ssh && cp /tmp/authorized_keys /home/$user/.ssh/ && chown -R $user:$user /home/$user && \
+    chmod 755 /home/$user && chmod 700 /home/$user/.ssh && chmod 600 /home/$user/.ssh/authorized_keys
 done
 
 # Run SSH
