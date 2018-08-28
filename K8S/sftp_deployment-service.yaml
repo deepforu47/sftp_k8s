@@ -49,8 +49,8 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: sftp-data
-        - mountPath: /home/foo/.ssh
-          name: sftp-public-keys
+#        - mountPath: /home/foo/.ssh
+#          name: sftp-public-keys
 #        - mountPath: /home/bar/.ssh
 #          name: sftp-public-keys
 #          readOnly: true
@@ -66,9 +66,9 @@ spec:
         tty: true
       restartPolicy: Always
       volumes:
-        - name: sftp-public-keys
-          configMap:
-            name: sftp-public-keys
+#        - name: sftp-public-keys
+#          configMap:
+#            name: sftp-public-keys
         - name: sftp-data
           persistentVolumeClaim:
             claimName: sftp-pvc
