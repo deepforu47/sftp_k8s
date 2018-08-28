@@ -149,5 +149,8 @@ Match User jboss_dev,dpduser1_dev,dpduser2_dev,dpduser3_dev,dpduser4_dev,bpostus
       AllowTcpForwarding no
       X11Forwarding no
 
+Match Group appuser
+      ChrootDirectory /home/%u
+      ForceCommand internal-sftp
 #should not be used
 #AllowGroups goep.npr.linux.admin goep.npr.dcsc.mobilisation goep.npr.network.admin goep.npr.monitoring goep.dvt.ta goep.dvt.dmz-sftp.users appuser qualyscan
