@@ -39,6 +39,6 @@ for userData in "${users[@]}";do
 done
 
 # Run SSH
-/usr/sbin/sshd -f /etc/ssh/sshd_config
+#/usr/sbin/sshd -f /etc/ssh/sshd_config
 
 #systemctl start sshd
