@@ -9,7 +9,7 @@ metadata:
     environment: dev
 spec:
   type: "LoadBalancer"
-#  LoadBalancerIP: 104.40.207.44
+  LoadBalancerIP: 104.40.207.44
   ports:
   - name: "ssh"
     port: 22
@@ -49,9 +49,9 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: sftp-data
-        - mountPath: /data/foo/.ssh/keys
+        - mountPath: /home/foo/.ssh
           name: sftp-public-keys
-        - mountPath: /data/bar/.ssh/keys
+        - mountPath: /home/bar/.ssh
           name: sftp-public-keys
           readOnly: true
         imagePullPolicy: Always
