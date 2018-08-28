@@ -32,6 +32,8 @@ for userData in "${users[@]}";do
 
     chown $user:$user /home/$user
     chmod 755 /home/$user
+    chmod 0700 /home/$user/.ssh
+    chmod 0600 /home/$user/.ssh/authorized_keys
 done
 
 # Run SSH
