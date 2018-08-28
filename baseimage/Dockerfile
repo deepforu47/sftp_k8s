@@ -18,7 +18,7 @@ ADD . /tmp
 WORKDIR /tmp
 RUN mv sshd_config /etc/ssh/sshd_config \
     && awk '{ sub("\r$", ""); print }' run.sh > run
-RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
+RUN ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key
 
 EXPOSE 22
 
