@@ -51,8 +51,8 @@ spec:
           name: sftp-data
         - mountPath: /home/foo/.ssh
           name: sftp-public-keys
-        - mountPath: /home/bar/.ssh
-          name: sftp-public-keys
+#        - mountPath: /home/bar/.ssh
+#          name: sftp-public-keys
 #          readOnly: true
         imagePullPolicy: Always
         name: sftp-container
