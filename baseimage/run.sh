@@ -1,7 +1,7 @@
 #!/bin/bash
 # Add users
 IFS=',' read -a users <<< "$SFTP_USERS"
-
+sftpgroup=appuser
 for userData in "${users[@]}";do
 
    IFS=':' read -a data <<< "$userData"
@@ -22,7 +22,7 @@ for userData in "${users[@]}";do
       uid=$(shuf -i 1500-2000 -n 1)
     fi
 
-    useradd -u $uid $user
+    useradd -g $sftpgroup -u $uid $user
 
     if [ "$encrypted" == "yes" ]; then
       echo "$user:$pass" | chpasswd -e
@@ -36,6 +36,9 @@ for userData in "${users[@]}";do
     chmod 755 /home/$user 
     chmod 700 /home/$user/.ssh 
     chmod 600 /home/$user/.ssh/authorized_keys
+    mkdir /data/$user/incoming
+    ln -sf /data/$user/incoming /home/$user/incoming  
+
 done
 
 # Run SSH
