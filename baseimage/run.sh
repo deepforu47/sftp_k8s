@@ -30,7 +30,7 @@ for userData in "${users[@]}";do
       echo "$user:$pass" | chpasswd
     fi
 
-    chown $user:$user /home/$user
+    chown -R $user:$user /home/$user
     chmod 755 /home/$user
     chmod 0700 /home/$user/.ssh
     chmod 0600 /home/$user/.ssh/authorized_keys
