@@ -21,8 +21,8 @@ for userData in "${users[@]}";do
     if ! [ $uid ]; then
       uid=$(shuf -i 1500-2000 -n 1)
     fi
-
-    useradd -g $sftpgroup -u $uid $user
+    useradd -u $uid $user
+    usermod -G $sftpgroup $user
 
     if [ "$encrypted" == "yes" ]; then
       echo "$user:$pass" | chpasswd -e
@@ -30,13 +30,13 @@ for userData in "${users[@]}";do
       echo "$user:$pass" | chpasswd
     fi
     
-    mkdir /home/$user/.ssh 
-    cp /tmp/authorized_keys /home/$user/.ssh/ 
-    chown -R $user:$user /home/$user 
-    chmod 755 /home/$user 
-    chmod 700 /home/$user/.ssh 
-    chmod 600 /home/$user/.ssh/authorized_keys
-    mkdir /data/$user/incoming
+    mkdir /home/$user/.ssh ; \
+    yes |cp /tmp/authorized_keys /home/$user/.ssh/ && echo "" ; \
+    chown -R $user:$user /home/$user ; \
+    chmod 755 /home/$user ; \
+    chmod 700 /home/$user/.ssh ; \ 
+    chmod 600 /home/$user/.ssh/authorized_keys ; \
+    mkdir -p /data/$user/incoming ; \
     ln -sf /data/$user/incoming /home/$user/incoming  
 
 done
