@@ -22,7 +22,7 @@ for userData in "${users[@]}";do
       uid=$(shuf -i 1500-2000 -n 1)
     fi
     useradd -u $uid $user
-    usermod -G $sftpgroup $user
+    usermod -aG $sftpgroup $user
 
     if [ "$encrypted" == "yes" ]; then
       echo "$user:$pass" | chpasswd -e
