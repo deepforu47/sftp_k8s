@@ -17,8 +17,9 @@ RUN sed -i 's/enabled=1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf \
 ADD . /tmp
 WORKDIR /tmp
 RUN mv sshd_config /etc/ssh/sshd_config \
-    && awk '{ sub("\r$", ""); print }' run.sh > run
-RUN ssh-keygen -t rsa -b 4096 -f /etc/ssh/ssh_host_rsa_key
+    && awk '{ sub("\r$", ""); print }' run.sh > run \
+	&& mv rsyslog.conf /etc/ \
+	&& ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
 
 EXPOSE 22
 
