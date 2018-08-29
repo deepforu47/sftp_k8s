@@ -42,6 +42,7 @@ for userData in "${users[@]}";do
 done
 
 # Run SSH
+/sbin/rsyslogd
 /usr/sbin/sshd -D
 
 #systemctl start sshd
