@@ -95,9 +95,9 @@ GSSAPICleanupCredentials yes
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
 #KS set to No
-UsePAM no
+#UsePAM no
 
-#UsePAM yes
+UsePAM yes
 
 # Accept locale-related environment variables
 AcceptEnv LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES
