@@ -32,7 +32,8 @@ for userData in "${users[@]}";do
     
     mkdir /home/$user/.ssh ; \
     yes |cp /tmp/authorized_keys /home/$user/.ssh/ && echo "" ; \
-    chown -R $user:$user /home/$user ; \
+    chown -R $user:$user /home/$user/.ssh ; \
+    chown root:root /home/$user ;
     chmod 755 /home/$user ; \
     chmod 700 /home/$user/.ssh ; \ 
     chmod 600 /home/$user/.ssh/authorized_keys ; \
