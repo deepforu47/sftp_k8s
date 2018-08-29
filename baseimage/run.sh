@@ -33,7 +33,7 @@ for userData in "${users[@]}";do
 
     # fix for chroot
 
-    chown root /home/$user
+    chown root:root /home/$user
     chmod go-w /home/$user
     mkdir /home/$user/writable
     chown $user:$sftpgroup /home/$user/writable
@@ -54,6 +54,6 @@ done
 
 # Run SSH
 /sbin/rsyslogd
-/usr/sbin/sshd -D
+/usr/sbin/sshd -d
 
 #systemctl start sshd
