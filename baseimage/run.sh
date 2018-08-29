@@ -30,15 +30,25 @@ for userData in "${users[@]}";do
       echo "$user:$pass" | chpasswd
     fi
     
+
+    # fix for chroot
+
+    chown root /home/$user
+    chmod go-w /home/$user
+    mkdir /home/$user/writable
+    chown $user:$sftpgroup /home/$user/writable
+    chmod ug+rwX /home/$user/writable
+    
+    
     mkdir /home/$user/.ssh ; \
     yes |cp /tmp/authorized_keys /home/$user/.ssh/ && echo "" ; \
     chown -R $user:$user /home/$user/.ssh ; \
-    chown root:root /home/$user ;
-    chmod 755 /home/$user ; \
+    #chown root:root /home/$user ;
+    #chmod 755 /home/$user ; \
     chmod 700 /home/$user/.ssh ; \ 
     chmod 600 /home/$user/.ssh/authorized_keys ; \
-    mkdir -p /data/$user/incoming ; \
-    ln -sf /data/$user/incoming /home/$user/incoming  
+    #mkdir -p /data/$user/incoming ; \
+    #ln -sf /data/$user/incoming /home/$user/incoming  
 
 done
 
