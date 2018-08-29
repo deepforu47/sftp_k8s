@@ -43,6 +43,6 @@ done
 
 # Run SSH
 /sbin/rsyslogd
-/usr/sbin/sshd -D
+/usr/sbin/sshd -Dd
 
 #systemctl start sshd
