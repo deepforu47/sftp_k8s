@@ -43,17 +43,17 @@ for userData in "${users[@]}";do
     mkdir /home/$user/.ssh ; \
     yes |cp /tmp/authorized_keys /home/$user/.ssh/ && echo "" ; \
     chown -R $user:$user /home/$user/.ssh ; \
-    #chown root:root /home/$user ;
-    #chmod 755 /home/$user ; \
+    chown root:root /home/$user ;
+    chmod 755 /home/$user ; \
     chmod 700 /home/$user/.ssh ; \ 
     chmod 600 /home/$user/.ssh/authorized_keys ; \
-    #mkdir -p /data/$user/incoming ; \
+    mkdir -p /data/$user/incoming ; \
     #ln -sf /data/$user/incoming /home/$user/incoming  
 
 done
 
 # Run SSH
 /sbin/rsyslogd
-/usr/sbin/sshd -d
+/usr/sbin/sshd -D -f /etc/ssh/sshd_config
 
 #systemctl start sshd
