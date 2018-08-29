@@ -153,7 +153,7 @@ Subsystem sftp internal-sftp -f AUTH -l INFO
 #      X11Forwarding no
 
 Match Group appuser
-ChrootDirectory /home/%u/incoming
+ChrootDirectory %h
 ForceCommand internal-sftp
 AllowTcpForwarding no
 X11Forwarding no
