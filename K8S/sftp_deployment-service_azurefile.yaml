@@ -49,9 +49,9 @@ spec:
         volumeMounts:
         - mountPath: /home/foo/incoming
           name: sftp-data
-        - name: goeptestkey
-          mountPath: /home/appuser/.ssh/goeptestkey
-          subPath: goeptestkey
+#        - name: goeptestkey
+#          mountPath: /home/appuser/.ssh/goeptestkey
+#          subPath: goeptestkey
 #        - mountPath: /home/foo/.ssh
 #          name: sftp-public-keys
 #        - mountPath: /home/bar/.ssh
@@ -75,9 +75,9 @@ spec:
         - name: sftp-data
           persistentVolumeClaim:
             claimName: sftp-pvc
-        - name: goeptestkey
-          secret:
-            secretName: goepsftptest
-            items:
-            - key: goeptestkey
-              path: goeptestkey
+#        - name: goeptestkey
+#          secret:
+#            secretName: goepsftptest
+#            items:
+#            - key: goeptestkey
+#              path: goeptestkey
