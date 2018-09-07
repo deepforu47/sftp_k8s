@@ -47,7 +47,7 @@ spec:
         - name: SFTP_USERS
           value: 'foo:123:1000,bar:abc:1001'
         volumeMounts:
-        - mountPath: /data
+        - mountPath: /home/foo/incoming
           name: sftp-data
         - name: goeptestkey
           mountPath: /home/appuser/.ssh/goeptestkey
