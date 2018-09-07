@@ -48,6 +48,7 @@ for userData in "${users[@]}";do
     chmod 700 /home/$user/.ssh 
     chmod 600 /home/$user/.ssh/authorized_keys 
     mkdir -p /data/$user/incoming
+    mkdir -p /home/$user/incoming
     mount --bind /data/$user/incoming /home/$user/incoming  
 
 done
