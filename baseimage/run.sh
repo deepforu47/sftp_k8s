@@ -33,10 +33,10 @@ for userData in "${users[@]}";do
 
     # fix for chroot
 
-    chown root:root /home/$user
-    chmod go-w /home/$user
-    mkdir /home/$user/
-    chown $user:$sftpgroup /home/$user/
+   # chown root:root /home/$user
+   # chmod go-w /home/$user
+   # mkdir /home/$user/
+   # chown $user:$sftpgroup /home/$user/
     #chmod ug+rwX /home/$user/writable
     
     
