@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: static-persistence-volume
+  name: static-persistence-volume1
   namespace: sftp
   labels: 
     storage: slow
@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: static-persistence-volume
+  name: static-persistence-volume1
   namespace: sftp
   labels:
     storage: slow
