@@ -9,9 +9,6 @@ metadata:
     app: sftp
 spec:
   replicas: 1
-  selector:
-    matchLabels:
-      app: sftp
   template:
     metadata:
       labels:
@@ -20,23 +17,21 @@ spec:
     spec:
       containers:
       - image: goepjbossacr.azurecr.io/sftp_baseimage
-        imagePullPolicy: Always
         name: sftp-container
+        imagePullPolicy: Always
         env:
         - name: SFTP_USERS
           value: 'foo:123:1000,bar:abc:1001'
+
         volumeMounts:
         - name: user1
           mountPath: /home/user1/in
-        volumeMounts:
         - name: user2
           mountPath: /home/user2/in
-
       volumes:
       - name: user1
         persistentVolumeClaim:
-          claimName: static-persistence-volume-claim1
+          claimName: sftp-share1
       - name: user2
         persistentVolumeClaim:
-          claimName: static-persistence-volume-claim2
-
+          claimName: sftp-share2
