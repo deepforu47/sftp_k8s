@@ -34,13 +34,9 @@ spec:
 
       volumes:
       - name: user1
-        azureFile:
-          secretName: volume-azurefile-storage-secret
-          shareName: static-share-user1
-          readOnly: false
+        persistentVolumeClaim:
+          claimName: share-obama
       - name: user2
-        azureFile:
-          secretName: volume-azurefile-storage-secret
-          shareName: static-share-user2
-          readOnly: false
+        persistentVolumeClaim:
+          claimName: share-obama
 
