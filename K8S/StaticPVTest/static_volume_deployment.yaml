@@ -31,7 +31,7 @@ spec:
       volumes:
       - name: azurefileshare
         azureFile:
-          secretName: 
+          secretName: volume-azurefile-storage-secret
           shareName: static-share
           readOnly: false
 
