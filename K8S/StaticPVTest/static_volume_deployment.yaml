@@ -25,9 +25,9 @@ spec:
 
         volumeMounts:
         - name: user1
-          mountPath: /home/user1/in
+          mountPath: /home/foo/in
         - name: user2
-          mountPath: /home/user2/in
+          mountPath: /home/bar/in
       volumes:
       - name: user1
         persistentVolumeClaim:
