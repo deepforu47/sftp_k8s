@@ -9,7 +9,7 @@ spec:
   capacity:
     storage: 50Gi
   accessModes:
-  - ReadWriteMany
+  - ReadWriteOnce
   storageClassName: sc-azurefile-static
   azureFile:
     shareName: storage
