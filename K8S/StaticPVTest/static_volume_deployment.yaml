@@ -19,17 +19,16 @@ spec:
         app: sftp
     spec:
       containers:
+      name: sftp-container-pvtest
       - image: goepjbossacr.azurecr.io/sftp_baseimage
-        securityContext:
-          privileged: true
+#        securityContext:
+#          privileged: true
         env:
         - name: SFTP_USERS
           value: 'foo:123:1000,bar:abc:1001'
         volumeMounts:
         - name: azurefileshare
           mountPath: /data      
-      imagePullSecrets:
-      - name: pnimages       
       volumes:
       - name: azurefileshare
         persistentVolumeClaim:
