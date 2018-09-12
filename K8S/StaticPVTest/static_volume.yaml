@@ -14,5 +14,24 @@ spec:
   storageClassName: sc-azurefile-static
   azureFile:
     secretName: static-persistence-secret
-    shareName: static-share
+    shareName: static-share-user1
+    readOnly: false
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: static-persistence-volume
+  namespace: sftp
+  labels:
+    storage: slow
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: sc-azurefile-static
+  azureFile:
+    secretName: static-persistence-secret
+    shareName: static-share-user2
     readOnly: false
