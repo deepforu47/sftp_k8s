@@ -9,4 +9,4 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: azurefilestorage
+  storageClassName: sc-azurefile-static
