@@ -1,16 +1,17 @@
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim
+kind: PersistentVolume
 metadata:
-  name: sftp-pvc
-  namespace: sftp
-  labels:
-    storage: sftp
+  name: static-persistence-volume
+  labels: 
+    storage: slow
 spec:
+  capacity:
+    storage: 50Gi
   accessModes:
-    - ReadWriteMany
-  volumeMode: Filesystem
-  storageClassName: sftpazurefile-sc
-  resources:
-    requests:
-      storage: 5Gi
+  - ReadWriteMany
+  storageClassName: azurefilestorage
+  azureFile:
+    secretName: static-persistence-secret
+    shareName: storage
+    readOnly: false
