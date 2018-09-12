@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -6,7 +7,27 @@ metadata:
 spec:
   selector:
     matchLabels:
+      app: sftp1
+  accessModes:
+    - ReadWriteMany  
+  resources:
+    requests:
+      storage: 5Gi
+  selector:
+    matchLabels:
       app: sftp
+  storageClassName: sc-azurefile-static
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: static-persistence-volume-claim
+  namespace: sftp
+spec:
+  selector:
+    matchLabels:
+      app: sftp2
   accessModes:
     - ReadWriteMany  
   resources:
