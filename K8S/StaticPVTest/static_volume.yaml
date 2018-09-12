@@ -14,5 +14,5 @@ spec:
   storageClassName: sc-azurefile-static
   azureFile:
     secretName: static-persistence-secret
-    shareName: storage
+    shareName: static-share
     readOnly: false
