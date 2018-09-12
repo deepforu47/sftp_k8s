@@ -19,10 +19,9 @@ spec:
         app: sftp
     spec:
       containers:
-        name: sftp-container-pvtest
       - image: goepjbossacr.azurecr.io/sftp_baseimage
-#        securityContext:
-#          privileged: true
+        imagePullPolicy: Always
+        name: sftp-container
         env:
         - name: SFTP_USERS
           value: 'foo:123:1000,bar:abc:1001'
