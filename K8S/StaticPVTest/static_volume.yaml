@@ -24,7 +24,7 @@ metadata:
   name: static-persistence-volume2
   namespace: sftp2
   labels:
-    app: sftp
+    app: sftp2
 spec:
   capacity:
     storage: 50Gi
