@@ -11,7 +11,7 @@ spec:
     storage: 50Gi
   accessModes:
   - ReadWriteOnce
-# storageClassName: sc-azurefile-static
+  storageClassName: sc-azurefile-static
   azureFile:
     secretName: static-persistence-secret
     shareName: static-share-user1
@@ -30,7 +30,7 @@ spec:
     storage: 50Gi
   accessModes:
   - ReadWriteOnce
-#  storageClassName: sc-azurefile-static
+  storageClassName: sc-azurefile-static
   azureFile:
     secretName: static-persistence-secret
     shareName: static-share-user2
