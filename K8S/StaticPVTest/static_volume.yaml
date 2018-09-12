@@ -5,7 +5,7 @@ metadata:
   name: static-persistence-volume1
   namespace: sftp
   labels: 
-    storage: slow
+    app: sftp
 spec:
   capacity:
     storage: 50Gi
@@ -24,7 +24,7 @@ metadata:
   name: static-persistence-volume1
   namespace: sftp
   labels:
-    storage: slow
+    app: sftp
 spec:
   capacity:
     storage: 50Gi
