@@ -35,8 +35,8 @@ spec:
       volumes:
       - name: user1
         persistentVolumeClaim:
-          claimName: share-obama
+          claimName: static-persistence-volume-claim1
       - name: user2
         persistentVolumeClaim:
-          claimName: share-obama
+          claimName: static-persistence-volume-claim2
 
