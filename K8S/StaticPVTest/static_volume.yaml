@@ -14,7 +14,7 @@ spec:
   - ReadWriteMany
   storageClassName: ""
   azureFile:
-    secretName: static-persistence-secret
+    secretName: volume-azurefile-storage-secret
     shareName: static-share-user1
     readOnly: false
   mountOptions:
@@ -37,6 +37,6 @@ spec:
   - ReadWriteMany
   storageClassName: ""
   azureFile:
-    secretName: static-persistence-secret
+    secretName: volume-azurefile-storage-secret
     shareName: static-share-user2
     readOnly: false
