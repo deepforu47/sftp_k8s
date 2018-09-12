@@ -5,7 +5,7 @@ metadata:
   name: static-persistence-volume1
   namespace: sftp
   labels: 
-    app: sftp
+    app: sftp1
 spec:
   capacity:
     storage: 50Gi
@@ -21,8 +21,8 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: static-persistence-volume1
-  namespace: sftp
+  name: static-persistence-volume2
+  namespace: sftp2
   labels:
     app: sftp
 spec:
