@@ -19,7 +19,7 @@ spec:
         app: sftp
     spec:
       containers:
-      name: sftp-container-pvtest
+        name: sftp-container-pvtest
       - image: goepjbossacr.azurecr.io/sftp_baseimage
 #        securityContext:
 #          privileged: true
