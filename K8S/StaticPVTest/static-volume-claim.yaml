@@ -4,6 +4,9 @@ metadata:
   name: static-persistence-volume-claim
   namespace: sftp
 spec:
+  selector:
+    matchLabels:
+      app: sftp
   accessModes:
     - ReadWriteMany  
   resources:
