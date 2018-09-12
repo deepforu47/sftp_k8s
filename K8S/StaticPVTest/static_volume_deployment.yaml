@@ -1,0 +1,39 @@
+---
+
+
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: static-persistence-volume-deployment
+  namespace: sftp
+  labels:
+    environment: dev
+    app: sftp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sftp
+  template:
+    metadata:
+      labels:
+        environment: dev
+        app: sftp
+    spec:
+      containers:
+      - image: goepjbossacr.azurecr.io/sftp_baseimage
+        securityContext:
+          privileged: true
+        env:
+        - name: SFTP_USERS
+          value: 'foo:123:1000,bar:abc:1001'
+        volumeMounts:
+        - name: azurefileshare
+          mountPath: /data      
+      imagePullSecrets:
+      - name: pnimages       
+      volumes:
+      - name: azurefileshare
+        persistentVolumeClaim:
+          claimName: static-persistence-volume-claim
+
