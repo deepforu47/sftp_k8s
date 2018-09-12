@@ -12,5 +12,6 @@ spec:
   - ReadWriteOnce
   storageClassName: sc-azurefile-static
   azureFile:
+    secretName: static-persistence-secret
     shareName: storage
     readOnly: false
