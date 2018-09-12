@@ -10,8 +10,7 @@ spec:
     storage: 50Gi
   accessModes:
   - ReadWriteMany
-  storageClassName: azurefilestorage
+  storageClassName: sc-azurefile-static
   azureFile:
-    secretName: static-persistence-secret
     shareName: storage
     readOnly: false
