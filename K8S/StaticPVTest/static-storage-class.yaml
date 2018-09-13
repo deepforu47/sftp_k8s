@@ -5,9 +5,9 @@ metadata:
   name: sc-azurefile-static
   namespace: sftp
 provisioner: kubernetes.io/azure-file
-mountOptions:
-  - dir_mode=0755
-  - file_mode=0644
+#mountOptions:
+#  - dir_mode=0755
+#  - file_mode=0644
 #  - uid=1000
 #  - gid=500
 #  - mfsymlinks

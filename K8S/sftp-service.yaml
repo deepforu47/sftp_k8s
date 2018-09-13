@@ -1,0 +1,20 @@
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: sftp-svc
+  namespace: sftp
+  labels:
+    environment: dev
+spec:
+  type: "LoadBalancer"
+  loadBalancerIP: 104.40.207.44
+  ports:
+  - name: "ssh"
+    port: 22
+    targetPort: 22
+  selector:
+    app: sftp
+status:
+  loadBalancer: {}

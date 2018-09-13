@@ -7,16 +7,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: sftp1
+      share: user1
   accessModes:
-    - ReadWriteMany  
+    - ReadWriteMany
+  storageClassName: "sc-azurefile-static"
   resources:
     requests:
       storage: 5Gi
-  selector:
-    matchLabels:
-      share: user1
-  storageClassName: ""
+
 
 ---
 apiVersion: v1
@@ -30,7 +28,7 @@ spec:
       share: user2
   accessModes:
     - ReadWriteMany  
+  storageClassName: "sc-azurefile-static"
   resources:
     requests:
       storage: 5Gi
-  storageClassName: ""
