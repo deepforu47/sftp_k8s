@@ -12,14 +12,14 @@ spec:
     storage: 5Gi
   accessModes:
   - ReadWriteMany
-  storageClassName: "sc-azurefile-static"
+#  storageClassName: "sc-azurefile-static"
   azureFile:
     secretName: volume-azurefile-storage-secret
     shareName: static-share-user1
     readOnly: false
   mountOptions:
-  - uid=1000
-  - gid=1000
+#  - uid=1000
+#  - gid=1000
   - dir_mode=0777
   - file_mode=0777
   
@@ -37,13 +37,13 @@ spec:
     storage: 5Gi
   accessModes:
   - ReadWriteMany
-  storageClassName: "sc-azurefile-static"
+#  storageClassName: "sc-azurefile-static"
   azureFile:
     secretName: volume-azurefile-storage-secret
     shareName: static-share-user2
     readOnly: false
   mountOptions:
-  - uid=1001
-  - gid=1001
+#  - uid=1001
+#  - gid=1001
   - dir_mode=0777
   - file_mode=0777

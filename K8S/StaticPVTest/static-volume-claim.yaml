@@ -10,7 +10,7 @@ spec:
       share: user1
   accessModes:
     - ReadWriteMany
-  storageClassName: "sc-azurefile-static"
+  storageClassName: ""
   resources:
     requests:
       storage: 5Gi
@@ -28,7 +28,7 @@ spec:
       share: user2
   accessModes:
     - ReadWriteMany  
-  storageClassName: "sc-azurefile-static"
+  storageClassName: ""
   resources:
     requests:
       storage: 5Gi

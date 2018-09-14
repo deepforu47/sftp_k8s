@@ -1,0 +1,88 @@
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: sftp-svc
+  namespace: sftp
+  labels:
+    environment: dev
+spec:
+  type: "LoadBalancer"
+  loadBalancerIP: 104.40.207.44
+  ports:
+  - name: "ssh"
+    port: 22
+    targetPort: 22
+  selector:
+    app: sftp
+status:
+  loadBalancer: {}
+
+---
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: sftp-deploy
+  namespace: sftp
+  labels:
+    environment: dev
+    app: sftp
+  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sftp
+  template:
+    metadata:
+      labels:
+        environment: dev
+        app: sftp
+    spec:
+      containers:
+      - image: goepjbossacr.azurecr.io/sftp_baseimage
+        securityContext:
+          privileged: true
+        env:
+        - name: SFTP_USERS
+          value: 'foo:123:1000,bar:abc:1001'
+        volumeMounts:
+        - mountPath: /data
+          name: sftp-data
+#        - mountPath: /home/bar/barin
+#          name: sftp-data
+#        - name: goeptestkey
+#          mountPath: /home/appuser/.ssh/goeptestkey
+#          subPath: goeptestkey
+#        - mountPath: /home/foo/.ssh
+#          name: sftp-public-keys
+#        - mountPath: /home/bar/.ssh
+#          name: sftp-public-keys
+#          readOnly: true
+        imagePullPolicy: Always
+        name: sftp-container
+#        securityContext:
+#            allowPrivilegeEscalation: true
+#            capabilities:
+#              add: ["NET_ADMIN", "SYS_TIME"]
+        resources: {}
+        stdin: true
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        tty: true
+      restartPolicy: Always
+      volumes:
+#        - name: sftp-public-keys
+#          configMap:
+#            name: sftp-public-keys
+        - name: sftp-data
+          persistentVolumeClaim:
+            claimName: sftp-pvc
+#        - name: goeptestkey
+#          secret:
+#            secretName: goepsftptest
+#            items:
+#            - key: goeptestkey
+#              path: goeptestkey
