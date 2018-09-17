@@ -9,7 +9,7 @@ metadata:
     share: user1
 spec:
   capacity:
-    storage: 5Gi
+    storage: 6Gi
   accessModes:
   - ReadWriteMany
   azureFile:
