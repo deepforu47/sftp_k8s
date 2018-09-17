@@ -14,7 +14,7 @@ spec:
   - ReadWriteMany
   azureFile:
     secretName: volume-azurefile-storage-secret
-    SecretNamespace: sftp
+    secretNamespace: sftp
     shareName: static-share-user1
     readOnly: false
   mountOptions:
@@ -37,7 +37,7 @@ spec:
   - ReadWriteMany
   azureFile:
     secretName: volume-azurefile-storage-secret
-    SecretNamespace: sftp
+    secretNamespace: sftp
     shareName: static-share-user2
     readOnly: false
   mountOptions:
