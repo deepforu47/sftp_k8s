@@ -11,14 +11,11 @@ RUN sed -i 's/enabled=1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf \
     && useradd -u 500 -g 500 appuser \
  #   && sed -i 's#HOME=/home#HOME=/data#g' /etc/default/useradd \
     && mkdir -p /var/run/sshd \
-    && groupadd --system sftp
-#cronie net-tools libunwind icu 
-
+ 
 ADD . /tmp
 WORKDIR /tmp
 RUN mv sshd_config /etc/ssh/sshd_config \
     && awk '{ sub("\r$", ""); print }' run.sh > run \
-	&& mv rsyslog.conf /etc/ \
 	&& ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key 
 
 EXPOSE 22
