@@ -16,7 +16,7 @@ spec:
         app: sftp
     spec:
       containers:
-      - image: goepjbossacr.azurecr.io/sftp_baseimage
+      - image: goepjbossacr.azurecr.io/goep-sftp
         name: sftp-container
         imagePullPolicy: Always
         env:
