@@ -13,3 +13,5 @@ steps:
     scriptLocation: inlineScript
 
     inlineScript: 'az acr build sftp-baseimage --registry $(ACR_NAME) --image  sftp_baseimage  --image sftp_baseimage:{{.Build.ID}}  -f Dockerfile'
+
+## Test
