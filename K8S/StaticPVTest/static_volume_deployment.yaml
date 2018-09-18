@@ -15,6 +15,7 @@ spec:
         environment: dev
         app: sftp
     spec:
+      terminationGracePeriodSeconds: 30
       containers:
       - image: goepjbossacr.azurecr.io/goep-sftp
         name: sftp-container
