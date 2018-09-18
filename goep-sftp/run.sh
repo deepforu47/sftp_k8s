@@ -10,7 +10,7 @@ for userData in "${users[@]}";do
 
    if [ "${data[2]}" == "e" ]; then
       encrypted=yes
-      uid="${data[2]}"
+      uid="${data[3]}"
       elif [ ${data[2]} ]; then
            uid="${data[2]}"
    fi
