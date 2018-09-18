@@ -22,6 +22,7 @@ spec:
         env:
         - name: SFTP_USERS
           value: 'foo:$1$915c9f6d$NyQPp/VGehhOJcnqnaOM51:e:1000,bar:abc:1001'
+#test
         volumeMounts:
         - name: user1
           mountPath: /home/foo/in
