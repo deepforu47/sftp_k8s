@@ -1,4 +1,7 @@
+ARG OS_VERSION=3.7
+FROM alpine:${OS_VERSION}
 
+MAINTAINER kuldeep.d.sharma
 
 # Steps done in one RUN layer:
 # - Install packages
@@ -9,5 +12,3 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /var/run/sshd && \
     rm -f /etc/ssh/ssh_host_*key*
-
-COPY sshd_config /etc/ssh/sshd_config
