@@ -1,7 +1,7 @@
 ARG VERSION=latest
-ARG SFTP_BASE_NAME=sftp-baseimage
+#ARG SFTP_BASE_NAME=sftp-baseimage
 ARG ACR
-FROM ${ACR}/${SFTP_BASE_NAME}:${VERSION}
+FROM ${ACR}/sftp-baseimage:${VERSION}
 
 MAINTAINER kuldeep.d.sharma
 
