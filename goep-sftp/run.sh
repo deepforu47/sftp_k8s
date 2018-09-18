@@ -35,7 +35,7 @@ for userData in "${users[@]}";do
     chmod 700 /home/$user/.ssh 
     chmod 600 /home/$user/.ssh/authorized_keys 
 done
-# Remove tmp data
+# Remove tmp data from /tmp
 rm -rf /tmp/*
 
 # Run SSH
