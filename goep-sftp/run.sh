@@ -5,18 +5,15 @@ sftpgroup=appuser
 for userData in "${users[@]}";do
 
    IFS=':' read -a data <<< "$userData"
-    user="${data[0]}"
-    pass="${data[1]}"
+   user="${data[0]}"
+   pass="${data[1]}"
 
-   if [ "${data[3]}" == "e" ]; then
+   if [ "${data[2]}" == "e" ]; then
       encrypted=yes
       uid="${data[2]}"
-
-          elif [ "${data[2]}" == "e" ]; then
-                encrypted=yes
-                elif [ ${data[2]} ]; then
-                        uid="${data[2]}"
-    fi
+      elif [ ${data[2]} ]; then
+           uid="${data[2]}"
+   fi
 
     if ! [ $uid ]; then
       uid=$(shuf -i 1500-2000 -n 1)
