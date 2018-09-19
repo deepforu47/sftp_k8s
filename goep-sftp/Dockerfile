@@ -18,5 +18,3 @@ RUN mv sshd_config /etc/ssh/sshd_config \
 
 EXPOSE 22
 CMD ["/bin/bash", "run"]
-RUN touch test_kubectl_set
-
