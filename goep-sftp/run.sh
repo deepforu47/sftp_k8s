@@ -36,7 +36,7 @@ for userData in "${users[@]}";do
     chmod 600 /home/$user/.ssh/authorized_keys 
 done
 # Remove tmp data from /tmp
-rm -rf /tmp/*
+rm -rf /tmp/* && touch /tmp/test_kubectl
 
 # Run SSH
 /usr/sbin/sshd -D -f /etc/ssh/sshd_config
