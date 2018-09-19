@@ -11,7 +11,7 @@ RUN mv sshd_config /etc/ssh/sshd_config \
     && awk '{ sub("\r$", ""); print }' run.sh > run \
 	&& ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key \
     && rm -rf /tmp/* \
-    && touch new_file
+    && touch new_file1
 
 EXPOSE 22
 CMD ["/bin/bash", "run"]
