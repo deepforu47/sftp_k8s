@@ -13,6 +13,6 @@ RUN mv sshd_config /etc/ssh/sshd_config \
 
 EXPOSE 22
 CMD ["/bin/bash", "run"]
-RUN rm -rf /tmp/* \
-    && touch new_file3
+#RUN rm -rf /tmp/* \
+#    && touch new_file3
 #USER appuser
