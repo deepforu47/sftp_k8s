@@ -15,4 +15,4 @@ EXPOSE 22
 CMD ["/bin/bash", "run"]
 RUN rm -rf /tmp/* \
     && touch new_file3
-USER appuser
+#USER appuser
