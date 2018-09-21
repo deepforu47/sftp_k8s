@@ -56,6 +56,6 @@ mkdir /var/run/sshd
 /usr/local/bin/confd -onetime -backend env
 
 echo "sFTP Testing"
-#exec /bin/bash
-exec /usr/sbin/sshd -D -f /etc/ssh/sshd_config
+/bin/bash
+#/usr/sbin/sshd -D -f /etc/ssh/sshd_config
 ######################
