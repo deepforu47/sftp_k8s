@@ -27,7 +27,7 @@ spec:
           value: 'appuser,foo'
         - name: allowed_users
           values: 'foo,bar' 
-#test1
+#test2
         volumeMounts:
         - name: user1
           mountPath: /home/foo/in
