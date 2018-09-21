@@ -1,5 +1,6 @@
 ARG OS_VERSION=18.04
-FROM goebaseimage-ubuntu:${OS_VERSION}
+ARG ACR
+FROM ${ACR}/goebaseimage-ubuntu:${OS_VERSION}
 
 ADD files/start.sh /start.sh
 RUN chmod +x /usr/local/bin/confd /start.sh
