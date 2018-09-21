@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e
 
 # if $proxy_domain is not set, then default to $HOSTNAME
 #export proxy_domain=${proxy_domain:-$HOSTNAME}
