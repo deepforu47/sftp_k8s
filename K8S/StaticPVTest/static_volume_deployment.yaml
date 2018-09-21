@@ -23,6 +23,10 @@ spec:
         env:
         - name: SFTP_USERS
           value: 'foo:$1$915c9f6d$NyQPp/VGehhOJcnqnaOM51:e:1000,bar:abc:1001'
+        - name: allowed_groups
+          value: 'appuser,foo'
+        - name: allowed_users
+          values: 'foo,bar' 
 #test1
         volumeMounts:
         - name: user1
