@@ -1,5 +1,5 @@
 ARG OS_VERSION=18.04
-FROM goep-ubuntu:${OS_VERSION}
+FROM goebaseimage-ubuntu:${OS_VERSION}
 
 ADD files/start.sh /start.sh
 RUN chmod +x /usr/local/bin/confd /start.sh
