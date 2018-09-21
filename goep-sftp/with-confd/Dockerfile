@@ -8,4 +8,4 @@ ADD files/confd /etc/confd
 ADD authorized_keys /tmp/authorized_keys
 
 EXPOSE 22
-CMD ["sh","/start.sh"]
+CMD ["bash","/start.sh"]
