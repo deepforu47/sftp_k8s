@@ -1,14 +1,24 @@
 ---
-apiVersion: autoscaling/v1
-kind: HorizontalPodAutoscaler
+apiVersion: v1
+items:
+- apiVersion: autoscaling/v1
+  kind: HorizontalPodAutoscaler
+  metadata:
+    annotations:
+    name: sftphpa
+    namespace: sftp
+  spec:
+    maxReplicas: 3
+    minReplicas: 1
+    scaleTargetRef:
+      apiVersion: extensions/v1beta1
+      kind: Deployment
+      name: static-persistence-volume-deployment
+    targetCPUUtilizationPercentage: 40
+  status:
+    currentReplicas: 1
+    desiredReplicas: 0
+kind: List
 metadata:
-name: sftphpa
-namespace: sftp
-spec:
-scaleTargetRef:
-  apiVersion: apps/v1beta1
-  kind: Deployment
-  name: sftphpa
-minReplicas: 1
-maxReplicas: 3
-targetCPUUtilizationPercentage: 50
+  resourceVersion: ""
+  selfLink: ""
