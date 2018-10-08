@@ -1,21 +1,19 @@
 #!/bin/bash
 #set -e
 
-# if $proxy_domain is not set, then default to $HOSTNAME
-#export proxy_domain=${proxy_domain:-$HOSTNAME}
 
 # ensure the following environment variables are set. exit script and container if not set.
-#test $backend_host
-#test $load_balancer_domain
-#test $app_servers
 #sudo -Hiu root env | grep $allowed_users
 test $allowed_users
 test $allowed_groups
 
 echo "Check for env variables - $allowed_users and $allowed_groups"
+export allowed_users=$allowed_users
+export allowed_groups=$allowed_groups
+
 
 ## Actual Script
-#!/bin/bash
+
 # Add users
 IFS=',' read -a users <<< "$SFTP_USERS"
 sftpgroup=appuser
@@ -57,10 +55,9 @@ sudo rm -rf /tmp/* && touch /tmp/test_kubectl
 
 # Run SSH
 sudo mkdir /var/run/sshd
-sudo /usr/local/bin/confd -onetime -backend $(sudo -Hiu root env)
+sudo /usr/local/bin/confd -onetime -backend env
 
 echo "sFTP Testing"
-#/bin/bash
-sudo /usr/sbin/sshd -D -f /etc/ssh/sshd_config
 cat /etc/ssh/sshd_config
+sudo /usr/sbin/sshd -D -f /etc/ssh/sshd_config
 ######################
