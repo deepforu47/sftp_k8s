@@ -13,5 +13,6 @@ USER appuser
 
 EXPOSE 22
 #ENTRYPOINT ["sudo", "bash", "/start.sh"]
-#CMD ["bash","/start.sh"]
+CMD ["bash"]
+#,"/start.sh"]
 #USER appuser
