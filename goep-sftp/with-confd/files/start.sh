@@ -8,8 +8,8 @@
 #test $backend_host
 #test $load_balancer_domain
 #test $app_servers
-#test $allowed_users
-#test $allowed_groups
+test $allowed_users
+test $allowed_groups
 
 echo "Check for env variables - $allowed_users and $allowed_groups"
 
