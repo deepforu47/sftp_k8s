@@ -10,6 +10,9 @@
 #test $app_servers
 test $allowed_users
 test $allowed_groups
+
+echo "Check for env variables - $allowed_users and $allowed_groups"
+
 ## Actual Script
 #!/bin/bash
 # Add users
