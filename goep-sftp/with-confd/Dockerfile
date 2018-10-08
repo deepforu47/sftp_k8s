@@ -9,10 +9,9 @@ ADD authorized_keys /tmp/authorized_keys
 
 RUN echo '%appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-USER appuser
+USER root
 
 EXPOSE 22
 #ENTRYPOINT ["sudo", "bash", "/start.sh"]
-CMD ["bash"]
-#,"/start.sh"]
+CMD ["bash","/start.sh"]
 #USER appuser
