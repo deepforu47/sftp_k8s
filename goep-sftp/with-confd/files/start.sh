@@ -8,8 +8,8 @@ test $allowed_users
 test $allowed_groups
 
 echo "Check for env variables - $allowed_users and $allowed_groups"
-sudo export allowed_users=$allowed_users
-sudo export allowed_groups=$allowed_groups
+sudo allowed_users=$allowed_users
+sudo allowed_groups=$allowed_groups
 
 
 ## Actual Script
