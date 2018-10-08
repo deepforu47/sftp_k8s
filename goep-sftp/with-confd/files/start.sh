@@ -61,4 +61,5 @@ sudo /usr/local/bin/confd -onetime -backend env
 echo "sFTP Testing"
 #/bin/bash
 sudo /usr/sbin/sshd -D -f /etc/ssh/sshd_config
+cat /etc/ssh/sshd_config
 ######################
