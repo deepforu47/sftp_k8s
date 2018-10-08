@@ -7,6 +7,7 @@ RUN apt-get install -y dos2unix && dos2unix /start.sh && chmod +x /usr/local/bin
 ADD files/confd /etc/confd
 ADD authorized_keys /tmp/authorized_keys
 
+USER root
 EXPOSE 22
 ENTRYPOINT ["bash", "/start.sh"]
 #CMD ["bash","/start.sh"]
