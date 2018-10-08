@@ -34,8 +34,8 @@ for userData in "${users[@]}";do
     if ! [ $uid ]; then
       uid=$(shuf -i 1500-2000 -n 1)
     fi
-    useradd -u $uid $user
-    usermod -aG $sftpgroup $user
+    sudo useradd -u $uid $user
+    sudo usermod -aG $sftpgroup $user
 
     if [ "$encrypted" == "yes" ]; then
       echo "$user:$pass" | chpasswd -e
@@ -43,22 +43,22 @@ for userData in "${users[@]}";do
       echo "$user:$pass" | chpasswd
     fi
 
-    mkdir -p /home/$user/.ssh
+    sudo mkdir -p /home/$user/.ssh
     yes |cp /tmp/authorized_keys /home/$user/.ssh/ && echo ""
-    chown -R $user:$user /home/$user/.ssh
-    chown root:root /home/$user
-    chmod 755 /home/$user
-    chmod 700 /home/$user/.ssh
-    chmod 600 /home/$user/.ssh/authorized_keys
+    sudo chown -R $user:$user /home/$user/.ssh
+    sudo chown root:root /home/$user
+    sudo chmod 755 /home/$user
+    sudo chmod 700 /home/$user/.ssh
+    sudo chmod 600 /home/$user/.ssh/authorized_keys
 done
 # Remove tmp data from /tmp
-rm -rf /tmp/* && touch /tmp/test_kubectl
+sudo rm -rf /tmp/* && touch /tmp/test_kubectl
 
 # Run SSH
-mkdir /var/run/sshd
-/usr/local/bin/confd -onetime -backend env
+sudo mkdir /var/run/sshd
+sudo /usr/local/bin/confd -onetime -backend env
 
 echo "sFTP Testing"
 #/bin/bash
-/usr/sbin/sshd -D -f /etc/ssh/sshd_config
+sudo /usr/sbin/sshd -D -f /etc/ssh/sshd_config
 ######################
