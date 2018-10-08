@@ -8,6 +8,7 @@
 #test $backend_host
 #test $load_balancer_domain
 #test $app_servers
+#sudo -Hiu root env | grep $allowed_users
 test $allowed_users
 test $allowed_groups
 
@@ -56,7 +57,7 @@ sudo rm -rf /tmp/* && touch /tmp/test_kubectl
 
 # Run SSH
 sudo mkdir /var/run/sshd
-sudo /usr/local/bin/confd -onetime -backend env
+sudo /usr/local/bin/confd -onetime -backend $(sudo -Hiu root env)
 
 echo "sFTP Testing"
 #/bin/bash
