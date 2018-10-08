@@ -38,13 +38,13 @@ for userData in "${users[@]}";do
     sudo usermod -aG $sftpgroup $user
 
     if [ "$encrypted" == "yes" ]; then
-      echo "$user:$pass" | chpasswd -e
+      echo "$user:$pass" | sudo chpasswd -e
     else
-      echo "$user:$pass" | chpasswd
+      echo "$user:$pass" | sudo chpasswd
     fi
 
     sudo mkdir -p /home/$user/.ssh
-    yes |cp /tmp/authorized_keys /home/$user/.ssh/ && echo ""
+    yes |sudo cp /tmp/authorized_keys /home/$user/.ssh/ && echo ""
     sudo chown -R $user:$user /home/$user/.ssh
     sudo chown root:root /home/$user
     sudo chmod 755 /home/$user
