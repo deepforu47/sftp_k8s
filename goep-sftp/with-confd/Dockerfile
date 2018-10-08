@@ -11,4 +11,4 @@ USER root
 EXPOSE 22
 ENTRYPOINT ["bash", "/start.sh"]
 #CMD ["bash","/start.sh"]
-USER appuser
+#USER appuser
