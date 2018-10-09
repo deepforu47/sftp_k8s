@@ -1,0 +1,49 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: static-persistence-volume-deployment
+  namespace: sftp
+  labels:
+    environment: dev
+    app: sftp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        environment: dev
+        app: sftp
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - image: goepjbossacr.azurecr.io/goep-sftp
+        name: sftp-container
+        resources:
+          requests:
+            memory: "400Mi"
+            cpu: "1"
+          limits:
+            memory: "512Mi"
+            cpu: "2"
+
+        imagePullPolicy: Always
+        env:
+        - name: SFTP_USERS
+          value: 'foo:$1$915c9f6d$NyQPp/VGehhOJcnqnaOM51:e:1000,bar:abc:1001'
+        - name: allowed_groups
+          value: 'appuser'
+        - name: allowed_users
+          value: 'foo,bar' 
+        volumeMounts:
+        - name: user1
+          mountPath: /home/foo/in
+        - name: user2
+          mountPath: /home/bar/in
+      volumes:
+      - name: user1
+        persistentVolumeClaim:
+          claimName: sftp-share1
+      - name: user2
+        persistentVolumeClaim:
+          claimName: sftp-share2

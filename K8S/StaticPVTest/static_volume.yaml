@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sftp-share1
+  namespace: sftp
+  labels: 
+    env: test
+    share: user1
+spec:
+  capacity:
+    storage: 6Gi
+  accessModes:
+  - ReadWriteMany
+  azureFile:
+    secretName: volume-azurefile-storage-secret
+    secretNamespace: sftp
+    shareName: static-share-user1
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: sftp-share2
+  namespace: sftp
+  labels: 
+    env: test
+    share: user2
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+  - ReadWriteMany
+  azureFile:
+    secretName: volume-azurefile-storage-secret
+    secretNamespace: sftp
+    shareName: static-share-user2
+    readOnly: false
+  mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
