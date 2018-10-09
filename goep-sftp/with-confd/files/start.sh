@@ -8,8 +8,7 @@ test $allowed_users
 test $allowed_groups
 
 echo "Check for env variables - $allowed_users and $allowed_groups"
-sudo allowed_users=$allowed_users
-sudo allowed_groups=$allowed_groups
+
 
 
 ## Actual Script
@@ -55,7 +54,7 @@ sudo rm -rf /tmp/* && touch /tmp/test_kubectl
 
 # Run SSH
 sudo mkdir /var/run/sshd
-sudo /usr/local/bin/confd -onetime -backend env
+/usr/local/bin/confd -onetime -backend env
 
 echo "sFTP Testing"
 cat /etc/ssh/sshd_config
