@@ -54,7 +54,8 @@ sudo rm -rf /tmp/* && touch /tmp/test_kubectl
 
 # Run SSH
 sudo mkdir /var/run/sshd
-sudo /usr/local/bin/confd -onetime -backend `sudo -E env "allowed_users=$allowed_users" "allowed_groups=allowed_groups"` 
+sudo -E env "allowed_users=$allowed_users" "allowed_groups=allowed_groups"
+sudo /usr/local/bin/confd -onetime -backend env 
 
 echo "sFTP Testing"
 cat /etc/ssh/sshd_config
