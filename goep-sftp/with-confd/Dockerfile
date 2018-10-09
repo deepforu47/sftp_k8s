@@ -12,6 +12,4 @@ RUN echo '%appuser ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 USER appuser
 
 EXPOSE 22
-#ENTRYPOINT ["sudo", "bash", "/start.sh"]
 ENTRYPOINT ["bash","/start.sh"]
-#CMD ["bash"]
